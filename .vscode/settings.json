@@ -1,5 +1,0 @@
-{
-  "typescript.preferences.importModuleSpecifier": "project-relative",
-  "eslint.validate": ["json"],
-  "editor.defaultFormatter": "esbenp.prettier-vscode"
-}
