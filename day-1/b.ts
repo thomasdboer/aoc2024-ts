@@ -7,9 +7,13 @@ export async function day1b(data: string[]) {
     listA = parsedLists.listA,
     listB = parsedLists.listB,
     setA = new Set(listA),
-    occurrencesInB: Record<number, number> = {};
-  setA.forEach((a) => occurrencesInB[a] = listB.filter((b) => b === a).length)
-  return listA.reduce((total, a) => total + a * occurrencesInB[a], 0);
+    frequencyInB: Record<number, number> = getFrequencyMap(setA, listB)
+  return listA.reduce((total, a) => total + a * frequencyInB[a], 0);
 }
 
+function getFrequencyMap(setA: Set<number>, listB: number[]): Record<number, number> {
+  const frequencyMap: Record<number, number> = {};
+  setA.forEach((a) => frequencyMap[a] = listB.filter((b) => b === a).length)
+  return frequencyMap;
+}
 await runSolution(day1b);
