@@ -4,8 +4,7 @@ const MUL_REGEXP = /(?:mul\(\d{1,3},\d{1,3}\))/g;
 const DIGITS_REGEXP = /\d{1,3}/g; /** provide your solution as the return of this function */
 
 export async function day3a(data: string[]) {
-  const instructions = parseDay3(data);
-  return instructions.reduce((total, curr) => total + curr[0] * curr[1], 0);
+  return parseDay3(data).reduce((total, curr) => total + curr[0] * curr[1], 0);
 }
 
 function parseDay3(data: string[]): number[][] {
