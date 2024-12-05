@@ -5,13 +5,15 @@ export type Report = Level[];
 
 /** provide your solution as the return of this function */
 export async function day2a(data: string[]) {
-  const reports = parseDay2(data);
-  return reports.map((report) => isSafe(report)).filter((val) => val).length;
+  return parseDay2(data)
+    .map((report) => isSafe(report))
+    .filter((val) => val)
+    .length;
 }
 
 export function isSafe(report: Report): boolean {
   const sorted = report.toSorted((a, b) => a - b);
-  return !(isNotIncreasingOrDecreasing(report, sorted) || hasIllegalStepSize(report))
+  return !(isNotIncreasingOrDecreasing(report, sorted) || hasIllegalStepSize(report));
 }
 
 export function isNotIncreasingOrDecreasing(report: Report, sorted: Report) {

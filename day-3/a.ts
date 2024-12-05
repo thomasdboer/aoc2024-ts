@@ -1,13 +1,14 @@
 import { runSolution } from "../utils.ts";
 
-const MUL_REGEXP = /(?:mul\(\d{1,3},\d{1,3}\))/g;
-const DIGITS_REGEXP = /\d{1,3}/g; /** provide your solution as the return of this function */
+export const MUL_REGEXP = /(?:mul\(\d{1,3},\d{1,3}\))/g;
+export const DIGITS_REGEXP = /\d{1,3}/g;
 
+/** provide your solution as the return of this function */
 export async function day3a(data: string[]) {
-  return parseDay3(data).reduce((total, curr) => total + curr[0] * curr[1], 0);
+  return parse(data).reduce((total, curr) => total + curr[0] * curr[1], 0);
 }
 
-function parseDay3(data: string[]): number[][] {
+function parse(data: string[]): number[][] {
   return data
     .filter((x) => x.trim() !== "")
     .map((element) =>
